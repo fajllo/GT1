@@ -84,11 +84,24 @@ const warGames = [{
   }
 ]
 //
-const olPar = document.createElement("ol");
 
-for(game of warGames){
-  const {homeTeam, awayTeam} = game;
+const makeData = (games,targetTeam)=>{
+const olPar = document.createElement("ol");
+for(game of games){
   const gameLi = document.createElement("li");
+  gameLi.innerHTML = scoreLine(game)
+  isWinner(game,targetTeam);
+ 
+  gameLi.classList.add(isWinner(game,targetTeam) ? "win":"lose");
+  
+
+  olPar.append(gameLi);
+ 
+}
+return olPar;
+
+};
+const scoreLine = ({homeTeam,awayTeam}) =>{
   const {team:hTeam, points:hPoints} = homeTeam;
   const {team:aTeam, points:aPoints} = awayTeam;
 
@@ -101,14 +114,22 @@ for(game of warGames){
   else{
      score = `<b>${hPoints}</b> - ${aPoints}`;
   }
-  const winner = hTeam === "Golden State" ? homeTeam : awayTeam;
-  gameLi.classList.add(winner.isWinner ? "win":"lose");
-  gameLi.innerHTML = ` ${teamNames} ${score}`
+  return ` ${teamNames} ${score}`;
+};
 
-  olPar.append(gameLi);
- 
-}
+const isWinner = ({homeTeam,awayTeam},targetTeam) => {
+  const target = homeTeam.team === targetTeam ? homeTeam : awayTeam;
+  return target.isWinner;
+
+};
+
+const chart1 = makeData(warGames,"Houston");
+
+const chart2 = makeData(warGames,"Golden State");
+
+
+document.querySelector("#GS").append(chart2);
+document.querySelector("#HO").append(chart1);
 
 
 
-document.body.prepend(olPar);
