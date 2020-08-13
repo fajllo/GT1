@@ -91,16 +91,12 @@ for(game of games){
   const gameLi = document.createElement("li");
   gameLi.innerHTML = scoreLine(game)
   isWinner(game,targetTeam);
- 
   gameLi.classList.add(isWinner(game,targetTeam) ? "win":"lose");
-  
-
   olPar.append(gameLi);
- 
 }
 return olPar;
-
 };
+
 const scoreLine = ({homeTeam,awayTeam}) =>{
   const {team:hTeam, points:hPoints} = homeTeam;
   const {team:aTeam, points:aPoints} = awayTeam;
@@ -124,9 +120,7 @@ const isWinner = ({homeTeam,awayTeam},targetTeam) => {
 };
 
 const chart1 = makeData(warGames,"Houston");
-
 const chart2 = makeData(warGames,"Golden State");
-
 
 document.querySelector("#GS").append(chart2);
 document.querySelector("#HO").append(chart1);
