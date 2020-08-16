@@ -1,10 +1,15 @@
 const btn = document.querySelector("button");
 
+
 btn.addEventListener("mouseover",function(){
-    let h = Math.floor(Math.random() * window.innerHeight());
-    let w = Math.floor(Math.random() * window.innerWidth());
-    btn.style.left = `${w}px`;
-    btn.style.top = `${h}px`;
+    const height = Math.floor(Math.random() * window.innerHeight);
+    const width = Math.floor(Math.random() * window.innerWidth);
+    btn.style.left = `${width}px`;
+    btn.style.top = `${height}px`;
 
+});
+btn.addEventListener('click',function (){
+    btn.innerText = "congrats!";
+    document.body.style.backgroundColor = "green";
 
-})
+});

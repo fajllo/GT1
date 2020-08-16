@@ -10,4 +10,5 @@ button{
     font-size: 30px;
     background-color: black;
     color: rgb(243, 239, 232);
+    text-transform: uppercase;
 }
