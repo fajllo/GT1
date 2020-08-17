@@ -2,7 +2,6 @@ const colors = ['black','red', 'orange','blue', 'green','indigo','purple','white
 
 const backColor = function(){
     document.body.style.backgroundColor = this.style.backgroundColor;
-    console.log(this)
 
 }
 
