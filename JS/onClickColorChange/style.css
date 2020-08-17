@@ -1,0 +1,14 @@
+#boxes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.box{
+    width:10vw;
+    height: 20vh;
+    border: 5px solid black;
+    margin: 5px;
+
+}
