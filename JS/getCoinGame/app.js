@@ -12,6 +12,9 @@ function isTouching(a, b) {
 
 const player = document.getElementById("player");
 const coin = document.getElementById("coin");
+let score = 0;
+const h1 = document.querySelector("h1");
+
 window.addEventListener("keyup",function (e){
 	if(e.keyCode === 40){
 		const topPo = posit(player.style.top);
@@ -30,6 +33,14 @@ window.addEventListener("keyup",function (e){
 		player.style.transform = 'scale(-1,1)';
 		player.style.left = `${leftPo - 50}px`;
 	}
+	if(isTouching(player,coin)){
+		moveCoin();
+		scoreCount();
+
+	
+
+	};
+	 
 })
 
 const moveCoin = () => {
@@ -47,4 +58,8 @@ const posit = (pos) =>{
 	 return parseInt(pos.slice(0,-2));
 
 };
+const scoreCount = () => {
+	score++;
+	h1.innerText = `SCORE: ${score}`;
+}
 moveCoin();
