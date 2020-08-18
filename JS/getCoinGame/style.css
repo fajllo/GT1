@@ -4,3 +4,8 @@ img {
 	top: 10px;
 	left: 10px;
 }
+ #coin{
+	width: 70px;
+	height: 70px;
+	opacity: 90%;
+ }

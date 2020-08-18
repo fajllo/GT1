@@ -11,28 +11,40 @@ function isTouching(a, b) {
 }
 
 const player = document.getElementById("player");
+const coin = document.getElementById("coin");
 window.addEventListener("keyup",function (e){
 	if(e.keyCode === 40){
 		const topPo = posit(player.style.top);
-		player.style.top = `${topPo + 25}px`;
+		player.style.top = `${topPo + 50}px`;
 	}
 	else if(e.keyCode === 38){
 		const topPo = posit(player.style.top);
-		player.style.top = `${topPo - 25}px`;
+		player.style.top = `${topPo - 50}px`;
 	}
 	else if(e.keyCode === 39){
 		const leftPo = posit(player.style.left);
 		player.style.transform = 'scale(1,1)';
-		player.style.left = `${leftPo + 25}px`;
+		player.style.left = `${leftPo + 50}px`;
 	}else if(e.keyCode === 37){
 		const leftPo = posit(player.style.left);
 		player.style.transform = 'scale(-1,1)';
-		player.style.left = `${leftPo - 25}px`;
+		player.style.left = `${leftPo - 50}px`;
 	}
 })
+
+const moveCoin = () => {
+
+	const height = Math.floor(Math.random() * window.innerHeight);
+	const width = Math.floor(Math.random() * window.innerWidth);
+	coin.style.left = `${width}px`;
+	coin.style.top = `${height}px`;
+
+};
+
 
 const posit = (pos) =>{
 	if (!pos) return 10;
 	 return parseInt(pos.slice(0,-2));
 
 };
+moveCoin();
