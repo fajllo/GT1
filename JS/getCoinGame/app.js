@@ -15,7 +15,7 @@ const coin = document.getElementById("coin");
 let score = 0;
 const h1 = document.querySelector("h1");
 
-window.addEventListener("keyup",function (e){
+window.addEventListener("keydown",function (e){
 	if(e.keyCode === 40){
 		const topPo = posit(player.style.top);
 		player.style.top = `${topPo + 50}px`;
