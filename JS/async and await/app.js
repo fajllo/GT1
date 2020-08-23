@@ -50,4 +50,6 @@ async function animateR() {
 
 }
 
-animateR()
+animateR().catch(err => {
+    console.log("all done")
+})
