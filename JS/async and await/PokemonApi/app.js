@@ -16,6 +16,9 @@ async function getPokemon(){
     const prom2 =  axios.get("https://pokeapi.co/api/v2/pokemon/2")
     const prom3 =  axios.get("https://pokeapi.co/api/v2/pokemon/3")
     const result = await Promise.all([prom1,prom2,prom3])
-    console.log(result)
+    const [p1,p2,p3] = result;
+    console.log(p1.data.name)
+    console.log(p2.data.name)
+    console.log(p3.data.name)
 }
  getPokemon()
